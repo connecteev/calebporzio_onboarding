@@ -9,9 +9,9 @@ class RedirectToUnfinishedOnboardingStep
 {
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->onboarding()->inProgress()) {
+        if (auth()->user()->onboarding()->inProgress()) {
             return redirect()->to(
-                Auth::user()->onboarding()->nextUnfinishedStep()->link
+                auth()->user()->onboarding()->nextUnfinishedStep()->link
             );
         }
 

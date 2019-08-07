@@ -18,10 +18,10 @@
 
 
 
-                    @if (Auth::user()->onboarding()->inProgress())
+                    @if (auth()->user()->onboarding()->inProgress())
                     <div>
 
-                        @foreach (Auth::user()->onboarding()->steps as $step)
+                        @foreach (auth()->user()->onboarding()->steps as $step)
                         <span>
                             @if($step->complete())
                             <i class="fa fa-check-square-o fa-fw"></i>
