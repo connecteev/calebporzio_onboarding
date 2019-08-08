@@ -10,10 +10,8 @@ class OnboardingController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware(['auth', 'onboarding']);
         $this->middleware(['auth']);
     }
-
 
     public function profile()
     {
@@ -25,8 +23,6 @@ class OnboardingController extends Controller
         $user = User::find(1);
         $user->profile = 1;
         $user->save();
-
-        //return redirect()->route('post');
         return redirect()->route('home');
     }
 
