@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use \Calebporzio\Onboard\OnboardFacade;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
