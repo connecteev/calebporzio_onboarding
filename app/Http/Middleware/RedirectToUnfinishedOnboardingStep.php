@@ -12,6 +12,8 @@ class RedirectToUnfinishedOnboardingStep
         if (auth()->user() && auth()->user()->onboarding()->inProgress()) {
             return redirect()->to(
                 auth()->user()->onboarding()->nextUnfinishedStep()->link
+                //. '?redirect_to=/' . $request->path()
+                //. '?redirect_to=/' . $request->url()
             );
         }
 
