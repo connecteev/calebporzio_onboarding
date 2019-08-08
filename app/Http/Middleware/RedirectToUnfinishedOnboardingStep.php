@@ -9,7 +9,7 @@ class RedirectToUnfinishedOnboardingStep
 {
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->onboarding()->inProgress()) {
+        if (auth()->user() && auth()->user()->onboarding()->inProgress()) {
             return redirect()->to(
                 auth()->user()->onboarding()->nextUnfinishedStep()->link
             );

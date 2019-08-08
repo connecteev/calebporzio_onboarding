@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class StaticController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -14,15 +14,10 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
-        $this->middleware(['auth', 'onboarding']);
+        $this->middleware(['onboarding']);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function home()
     {
         return view('home');
     }

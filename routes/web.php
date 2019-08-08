@@ -11,14 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'StaticController@home')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/profile', 'OnboardingController@profile')->name('profile');
-Route::post('/updateProfile', 'OnboardingController@updateProfile')->name('updateProfile');
-Route::get('/post', 'OnboardingController@post')->name('post');
-Route::post('/updatePostCount', 'OnboardingController@updatePostCount')->name('updatePostCount');
+Route::get('/profile', 'UserController@profile')->name('profile');
+Route::post('/updateProfile', 'UserController@updateProfile')->name('updateProfile');
+Route::get('/post', 'UserController@post')->name('post');
+Route::post('/updatePostCount', 'UserController@updatePostCount')->name('updatePostCount');

@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 
-class OnboardingController extends Controller
+class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware('auth');
     }
 
     public function profile()
@@ -20,7 +25,7 @@ class OnboardingController extends Controller
 
     public function updateProfile()
     {
-        $user = User::find(1);
+        $user = Auth::user();
         $user->profile = 1;
         $user->save();
         return redirect()->route('home');
@@ -33,7 +38,7 @@ class OnboardingController extends Controller
 
     public function updatePostCount()
     {
-        $user = User::find(1);
+        $user = Auth::user();
         $user->post = 1;
         $user->save();
         return redirect()->route('home');
